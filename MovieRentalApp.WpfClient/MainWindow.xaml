@@ -41,5 +41,24 @@
             <Button Content="Update Movie" Command="{Binding UpdateMovieCommand}" Margin="7" Padding="7" />
             <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
         </StackPanel>
+        <ListBox ItemsSource="{Binding Rents}" SelectedItem="{Binding SelectedRent}" Grid.Column="2" Grid.Row="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Order}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="3" Grid.Row="0">
+            <Label Content="Order" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedRent.Order}" Padding="7" Margin="0,0,0,20" />
+            <Label Content="Price" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedRent.Price}" Padding="7" Margin="0,0,0,20" />
+            <Label Content="Overrun fee" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedRent.OverrunFee}" Padding="7" Margin="0,0,0,20" />
+            <Button Content="Create Rent" Command="{Binding CreateRentCommand}" Margin="7" Padding="7" />
+            <Button Content="Delete Rent" Command="{Binding DeleteRentCommand}" Margin="7" Padding="7" />
+            <Button Content="Update Rent" Command="{Binding UpdateRentCommand}" Margin="7" Padding="7" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
     </Grid>
 </Window>
