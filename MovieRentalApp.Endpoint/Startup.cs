@@ -15,6 +15,7 @@ using MovieRentalApp.Repository;
 using MovieRentalApp.Logic;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using MovieRentalApp.Endpoint.Services;
 
 namespace MovieRentalApp.Endpoint
 {
@@ -41,6 +42,8 @@ namespace MovieRentalApp.Endpoint
             services.AddTransient<IRentLogic, RentLogic>();
             services.AddTransient<IRenterLogic, RenterLogic>();
             services.AddTransient<IStaffLogic, StaffLogic>();
+
+            services.AddSignalR();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -75,6 +78,7 @@ namespace MovieRentalApp.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
