@@ -81,5 +81,26 @@
             <Button Content="Update Renter" Command="{Binding UpdateRenterCommand}" Margin="7" Padding="7" />
             <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
         </StackPanel>
+        <ListBox ItemsSource="{Binding Staffs}" SelectedItem="{Binding SelectedStaff}" Grid.Column="0" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Director}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Label Content="Director" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedStaff.Director}" Padding="7" Margin="0,0,0,20" />
+            <Label Content="Cost" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedStaff.Cost}" Padding="7" Margin="0,0,0,20" />
+            <Label Content="Studio" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedStaff.Studio}" Padding="7" Margin="0,0,0,20" />
+            <Label Content="MovieId" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedStaff.MovieId}" Padding="7" Margin="0,0,0,20" />
+            <Button Content="Create Staff" Command="{Binding CreateStaffCommand}" Margin="7" Padding="7" />
+            <Button Content="Delete Staff" Command="{Binding DeleteStaffCommand}" Margin="7" Padding="7" />
+            <Button Content="Update Staff" Command="{Binding UpdateStaffCommand}" Margin="7" Padding="7" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
     </Grid>
 </Window>
