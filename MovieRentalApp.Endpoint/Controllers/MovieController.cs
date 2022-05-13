@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using MovieRentalApp.Models;
 using MovieRentalApp.Logic;
+using MovieRentalApp.Endpoint.Services;
+using Microsoft.AspNetCore.SignalR;
 
 namespace MovieRentalApp.Endpoint.Controllers
 {
@@ -13,10 +15,12 @@ namespace MovieRentalApp.Endpoint.Controllers
     public class MovieController : ControllerBase
     {
         IMovieLogic logic;
+        IHubContext<SignalRHub> hub;
 
-        public MovieController(IMovieLogic logic)
+        public MovieController(IMovieLogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
         [HttpGet]
@@ -35,18 +39,22 @@ namespace MovieRentalApp.Endpoint.Controllers
         public void Create([FromBody] Movie value)
         {
             this.logic.Create(value);
+            this.hub.Clients.All.SendAsync("MovieCreated", value);
         }
 
         [HttpPut]
         public void Update([FromBody] Movie value)
         {
             this.logic.Update(value);
+            this.hub.Clients.All.SendAsync("MovieUpdated", value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var movieToDelete = this.logic.Read(id);
             this.logic.Delete(id);
+            this.hub.Clients.All.SendAsync("MovieDeleted", movieToDelete);
         }
     }
 }
