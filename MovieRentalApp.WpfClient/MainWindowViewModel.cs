@@ -24,7 +24,11 @@ namespace MovieRentalApp.WpfClient
 
         public RestCollection<Movie> Movies { get; set; }
 
+        public RestCollection<Rent> Rents { get; set; }
+
         private Movie selectedMovie;
+
+        private Rent selectedRent;
 
         public Movie SelectedMovie
         {
@@ -49,11 +53,39 @@ namespace MovieRentalApp.WpfClient
             }
         }
 
+        public Rent SelectedRent
+        {
+            get { return selectedRent; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedRent = new Rent()
+                    {
+                        RentId = value.RentId,
+                        Order = value.Order,
+                        Price = value.Price,
+                        RentalStart = value.RentalStart,
+                        RentalEnd = value.RentalEnd,
+                        OverrunFee = value.OverrunFee
+                    };
+                    OnPropertyChanged();
+                    (DeleteRentCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
+            }
+        }
+
         public ICommand CreateMovieCommand { get; set; }
 
         public ICommand DeleteMovieCommand { get; set; }
 
         public ICommand UpdateMovieCommand { get; set; }
+
+        public ICommand CreateRentCommand { get; set; }
+
+        public ICommand DeleteRentCommand { get; set; }
+
+        public ICommand UpdateRentCommand { get; set; }
 
         public static bool IsInDesignMode
         {
@@ -69,6 +101,8 @@ namespace MovieRentalApp.WpfClient
             if (!IsInDesignMode)
             {
                 Movies = new RestCollection<Movie>("http://localhost:12229/", "movie", "hub");
+                Rents = new RestCollection<Rent>("http://localhost:12229/", "rent", "hub");
+
                 CreateMovieCommand = new RelayCommand(() =>
                 {
                     Movies.Add(new Movie()
@@ -101,8 +135,41 @@ namespace MovieRentalApp.WpfClient
                 {
                     return SelectedMovie != null;
                 });
-                
+
+                CreateRentCommand = new RelayCommand(() =>
+                {
+                    Rents.Add(new Rent()
+                    {
+                        Order = SelectedRent.Order,
+                        Price = SelectedRent.Price,
+                        OverrunFee = SelectedRent.OverrunFee
+                    });
+                });
+
+                UpdateRentCommand = new RelayCommand(() =>
+                {
+                    try
+                    {
+                        Rents.Update(SelectedRent);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        ErrorMessage = ex.Message;
+                    }
+
+                });
+
+                DeleteRentCommand = new RelayCommand(() =>
+                {
+                    Rents.Delete(SelectedRent.RentId);
+                },
+                () =>
+                {
+                    return SelectedRent != null;
+                });
+
                 SelectedMovie = new Movie();
+                SelectedRent = new Rent();
             }
         }
     }
