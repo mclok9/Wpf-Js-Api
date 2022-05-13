@@ -26,9 +26,13 @@ namespace MovieRentalApp.WpfClient
 
         public RestCollection<Rent> Rents { get; set; }
 
+        public RestCollection<Renter> Renters { get; set; }
+
         private Movie selectedMovie;
 
         private Rent selectedRent;
+
+        private Renter selectedRenter;
 
         public Movie SelectedMovie
         {
@@ -75,6 +79,31 @@ namespace MovieRentalApp.WpfClient
             }
         }
 
+        public Renter SelectedRenter
+        {
+            get { return selectedRenter; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedRenter = new Renter()
+                    {
+                        RenterId = value.RenterId,
+                        Name = value.Name,
+                        Postcode = value.Postcode,
+                        City = value.City,
+                        Street = value.Street,
+                        HouseNumber = value.HouseNumber,
+                        MembershipStart = value.MembershipStart,
+                        MembershipEnd = value.MembershipEnd,
+                        RentId = value.RentId
+                    };
+                    OnPropertyChanged();
+                    (DeleteRenterCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
+            }
+        }
+
         public ICommand CreateMovieCommand { get; set; }
 
         public ICommand DeleteMovieCommand { get; set; }
@@ -86,6 +115,12 @@ namespace MovieRentalApp.WpfClient
         public ICommand DeleteRentCommand { get; set; }
 
         public ICommand UpdateRentCommand { get; set; }
+
+        public ICommand CreateRenterCommand { get; set; }
+
+        public ICommand DeleteRenterCommand { get; set; }
+
+        public ICommand UpdateRenterCommand { get; set; }
 
         public static bool IsInDesignMode
         {
@@ -102,6 +137,7 @@ namespace MovieRentalApp.WpfClient
             {
                 Movies = new RestCollection<Movie>("http://localhost:12229/", "movie", "hub");
                 Rents = new RestCollection<Rent>("http://localhost:12229/", "rent", "hub");
+                Renters = new RestCollection<Renter>("http://localhost:12229/", "renter", "hub");
 
                 CreateMovieCommand = new RelayCommand(() =>
                 {
@@ -168,8 +204,42 @@ namespace MovieRentalApp.WpfClient
                     return SelectedRent != null;
                 });
 
+                CreateRenterCommand = new RelayCommand(() =>
+                {
+                    Renters.Add(new Renter()
+                    {
+                        Name = SelectedRenter.Name,
+                        City = SelectedRenter.City,
+                        Postcode = SelectedRenter.Postcode,
+                        RentId = SelectedRenter.RentId
+                    });
+                });
+
+                UpdateRenterCommand = new RelayCommand(() =>
+                {
+                    try
+                    {
+                        Renters.Update(SelectedRenter);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        ErrorMessage = ex.Message;
+                    }
+
+                });
+
+                DeleteRenterCommand = new RelayCommand(() =>
+                {
+                    Renters.Delete(SelectedRenter.RenterId);
+                },
+                () =>
+                {
+                    return SelectedRenter != null;
+                });
+
                 SelectedMovie = new Movie();
                 SelectedRent = new Rent();
+                SelectedRenter = new Renter();
             }
         }
     }
