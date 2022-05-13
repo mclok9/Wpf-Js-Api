@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32428.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRentalApp.Client", "MovieRentalApp.Client\MovieRentalApp.Client.csproj", "{8C67738D-EFD0-4789-B331-0B8D5677F493}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRentalApp.Models", "MovieRentalApp.Models\MovieRentalApp.Models.csproj", "{03A2E72E-2CBE-4147-8EFF-4FD0FC0364B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRentalApp.Repository", "MovieRentalApp.Repository\MovieRentalApp.Repository.csproj", "{D5EC72F4-C2BE-45EB-A37C-5F9168FC0342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRentalApp.Logic", "MovieRentalApp.Logic\MovieRentalApp.Logic.csproj", "{72D79ECF-EE53-402F-9142-A9EC28EFBF38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRentalApp.Endpoint", "MovieRentalApp.Endpoint\MovieRentalApp.Endpoint.csproj", "{1622787D-9FBB-49A5-A657-27501B477177}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRentalApp.WpfClient", "MovieRentalApp.WpfClient\MovieRentalApp.WpfClient.csproj", "{4B1B6368-A25F-4657-A767-242CD5420B56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C67738D-EFD0-4789-B331-0B8D5677F493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C67738D-EFD0-4789-B331-0B8D5677F493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C67738D-EFD0-4789-B331-0B8D5677F493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C67738D-EFD0-4789-B331-0B8D5677F493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03A2E72E-2CBE-4147-8EFF-4FD0FC0364B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03A2E72E-2CBE-4147-8EFF-4FD0FC0364B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03A2E72E-2CBE-4147-8EFF-4FD0FC0364B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03A2E72E-2CBE-4147-8EFF-4FD0FC0364B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5EC72F4-C2BE-45EB-A37C-5F9168FC0342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5EC72F4-C2BE-45EB-A37C-5F9168FC0342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5EC72F4-C2BE-45EB-A37C-5F9168FC0342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5EC72F4-C2BE-45EB-A37C-5F9168FC0342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72D79ECF-EE53-402F-9142-A9EC28EFBF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72D79ECF-EE53-402F-9142-A9EC28EFBF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72D79ECF-EE53-402F-9142-A9EC28EFBF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72D79ECF-EE53-402F-9142-A9EC28EFBF38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1622787D-9FBB-49A5-A657-27501B477177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1622787D-9FBB-49A5-A657-27501B477177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1622787D-9FBB-49A5-A657-27501B477177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1622787D-9FBB-49A5-A657-27501B477177}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B1B6368-A25F-4657-A767-242CD5420B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B1B6368-A25F-4657-A767-242CD5420B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B1B6368-A25F-4657-A767-242CD5420B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B1B6368-A25F-4657-A767-242CD5420B56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A25EA3F8-0BFC-489E-AFEC-84B99F08A710}
+	EndGlobalSection
+EndGlobal

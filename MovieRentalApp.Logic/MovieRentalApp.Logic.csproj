@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MovieRentalApp.Models\MovieRentalApp.Models.csproj" />
+    <ProjectReference Include="..\MovieRentalApp.Repository\MovieRentalApp.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
