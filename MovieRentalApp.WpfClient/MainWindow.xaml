@@ -60,5 +60,26 @@
             <Button Content="Update Rent" Command="{Binding UpdateRentCommand}" Margin="7" Padding="7" />
             <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
         </StackPanel>
+        <ListBox ItemsSource="{Binding Renters}" SelectedItem="{Binding SelectedRenter}" Grid.Column="2" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="3" Grid.Row="1">
+            <Label Content="Name" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedRenter.Name}" Padding="7" Margin="0,0,0,20" />
+            <Label Content="City" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedRenter.City}" Padding="7" Margin="0,0,0,20" />
+            <Label Content="Postcode" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedRenter.Postcode}" Padding="7" Margin="0,0,0,20" />
+            <Label Content="RentId" Background="LightBlue" Padding="7" />
+            <TextBox Text="{Binding SelectedRenter.RentId}" Padding="7" Margin="0,0,0,20" />
+            <Button Content="Create Renter" Command="{Binding CreateRenterCommand}" Margin="7" Padding="7" />
+            <Button Content="Delete Renter" Command="{Binding DeleteRenterCommand}" Margin="7" Padding="7" />
+            <Button Content="Update Renter" Command="{Binding UpdateRenterCommand}" Margin="7" Padding="7" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
     </Grid>
 </Window>
