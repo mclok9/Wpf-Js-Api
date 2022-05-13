@@ -68,7 +68,7 @@ namespace MovieRentalApp.WpfClient
         {
             if (!IsInDesignMode)
             {
-                Movies = new RestCollection<Movie>("http://localhost:12229/", "movie");
+                Movies = new RestCollection<Movie>("http://localhost:12229/", "movie", "hub");
                 CreateMovieCommand = new RelayCommand(() =>
                 {
                     Movies.Add(new Movie()
