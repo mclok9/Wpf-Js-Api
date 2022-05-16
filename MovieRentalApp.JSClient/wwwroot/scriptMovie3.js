@@ -1,13 +1,43 @@
 ﻿let movies = [];
-
+let connection = null;
 getdata();
+setupSignalR();
+
+function setupSignalR() {
+    connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://localhost:12229/hub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    connection.on("MovieCreated", (user, message) => {
+        getdata();
+    });
+
+    connection.on("MovieDeleted", (user, message) => {
+        getdata();
+    });
+
+    connection.onclose(async () => {
+        await start();
+    });
+    start();
+}
+
+async function start() {
+    try {
+        await connection.start();
+        console.log("SignalR Connected.");
+    } catch (err) {
+        console.log(err);
+        setTimeout(start, 5000);
+    }
+};
 
 async function getdata() {
     await fetch('http://localhost:12229/movie')
         .then(x => x.json())
         .then(y => {
             movies = y;
-            console.log(movies);
             display();
         });
 }
