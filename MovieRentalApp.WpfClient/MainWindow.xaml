@@ -34,7 +34,7 @@
             <TextBox Text="{Binding SelectedMovie.Category}" Padding="7" Margin="0,0,0,20" />
             <Label Content="Length" Background="LightBlue" Padding="7" />
             <TextBox Text="{Binding SelectedMovie.Length}" Padding="7" Margin="0,0,0,20" />
-            <Label Content="RentId" Background="LightBlue" Padding="7" />
+            <Label Content="RentId (between 1 and 10)" Background="LightBlue" Padding="7" />
             <TextBox Text="{Binding SelectedMovie.RentId}" Padding="7" Margin="0,0,0,20" />
             <Button Content="Create Movie" Command="{Binding CreateMovieCommand}" Margin="7" Padding="7" />
             <Button Content="Delete Movie" Command="{Binding DeleteMovieCommand}" Margin="7" Padding="7" />
@@ -74,7 +74,7 @@
             <TextBox Text="{Binding SelectedRenter.City}" Padding="7" Margin="0,0,0,20" />
             <Label Content="Postcode" Background="LightBlue" Padding="7" />
             <TextBox Text="{Binding SelectedRenter.Postcode}" Padding="7" Margin="0,0,0,20" />
-            <Label Content="RentId" Background="LightBlue" Padding="7" />
+            <Label Content="RentId (between 1 and 10)" Background="LightBlue" Padding="7" />
             <TextBox Text="{Binding SelectedRenter.RentId}" Padding="7" Margin="0,0,0,20" />
             <Button Content="Create Renter" Command="{Binding CreateRenterCommand}" Margin="7" Padding="7" />
             <Button Content="Delete Renter" Command="{Binding DeleteRenterCommand}" Margin="7" Padding="7" />
@@ -95,7 +95,7 @@
             <TextBox Text="{Binding SelectedStaff.Cost}" Padding="7" Margin="0,0,0,20" />
             <Label Content="Studio" Background="LightBlue" Padding="7" />
             <TextBox Text="{Binding SelectedStaff.Studio}" Padding="7" Margin="0,0,0,20" />
-            <Label Content="MovieId" Background="LightBlue" Padding="7" />
+            <Label Content="MovieId (between 1 and 10)" Background="LightBlue" Padding="7" />
             <TextBox Text="{Binding SelectedStaff.MovieId}" Padding="7" Margin="0,0,0,20" />
             <Button Content="Create Staff" Command="{Binding CreateStaffCommand}" Margin="7" Padding="7" />
             <Button Content="Delete Staff" Command="{Binding DeleteStaffCommand}" Margin="7" Padding="7" />
