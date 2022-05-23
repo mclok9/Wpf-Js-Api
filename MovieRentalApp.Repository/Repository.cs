@@ -26,11 +26,7 @@ namespace MovieRentalApp.Repository
             return ctx.Set<T>();
         }
 
-        public void Delete(int id)
-        {
-            ctx.Set<T>().Remove(Read(id));
-            ctx.SaveChanges();
-        }
+        public abstract void Delete(int id);
 
         public abstract T Read(int id);
         public abstract void Update(T item);
