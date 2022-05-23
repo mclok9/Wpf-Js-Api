@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Rent page</title>
+    <link rel="stylesheet" href="styleRent.css" />
+</head>
+<body>
+    <h1>Rent List</h1>
+
+    <div id="formdiv">
+        <label>Rent order</label>
+        <input type="datetime" id="rentorder" />
+        <label>Rent price</label>
+        <input type="number" id="rentprice" />
+        <label>Rent start of the rental</label>
+        <input type="datetime" id="rentrentalstart" />
+        <label>Rent end of the rental</label>
+        <input type="datetime" id="rentrentalend" />
+        <label>Rent overrun fee</label>
+        <input type="number" id="rentoverrunfee" />
+        <button type="button" onclick="create()">Add rent</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Rent order</label>
+        <input type="datetime" id="rentorderupdate" />
+        <label>Rent price</label>
+        <input type="number" id="rentpriceupdate" />
+        <label>Rent start of the rental</label>
+        <input type="datetime" id="rentrentalstartupdate" />
+        <label>Rent end of the rental</label>
+        <input type="datetime" id="rentrentalendupdate" />
+        <label>Rent overrun fee</label>
+        <input type="number" id="rentoverrunfeeupdate" />
+        <button type="button" onclick="update()">Update rent</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Price</th>
+                <th>Overrunfee</th>
+                <th>Order</th>
+                <th>RentalStart</th>
+                <th>RentalEnd</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="scriptRent.js"></script>
+</body>
+</html>
