@@ -33,5 +33,51 @@ namespace MovieRentalApp.Repository
 
             ctx.SaveChanges();
         }
+
+        public override void Delete(int id)
+        {
+            var entity = this.Read(id);
+            if (entity != null)
+            {
+                this.ctx.Set<Rent>().Remove(entity);
+                this.ctx.SaveChanges();
+
+                /*Renter deletedOneRenter;
+                Movie deletedOneMovie = new Movie();
+                Staff deletedOneStaff;
+
+
+                foreach (var item in this.ctx.Set<Renter>())
+                {
+                    if (entity.RentId == item.RentId)
+                    {
+                        deletedOneRenter = item;
+                        this.ctx.Set<Renter>().Remove(deletedOneRenter);
+                        this.ctx.SaveChanges();
+                    }
+                }
+
+                foreach (var item in this.ctx.Set<Movie>())
+                {
+                    if (entity.RentId == item.RentId)
+                    {
+                        deletedOneMovie = item;
+                        this.ctx.Set<Movie>().Remove(deletedOneMovie);
+                        this.ctx.SaveChanges();
+                    }
+                }
+
+                foreach (var item in this.ctx.Set<Staff>())
+                {
+                    if (deletedOneMovie.MovieId == item.MovieId)
+                    {
+                        deletedOneStaff = item;
+                        this.ctx.Set<Staff>().Remove(deletedOneStaff);
+                        this.ctx.SaveChanges();
+                    }
+                }*/
+            }
+            
+        }
     }
 }
