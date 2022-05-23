@@ -40,21 +40,17 @@ namespace MovieRentalApp.Repository
 
             if (entity != null)
             {
-                bool contains = false;
 
                 foreach (var movie in this.ctx.Set<Movie>())
                 {
                     if (id == movie.MovieId)
                     {
-                        contains = true;
+                        this.ctx.Set<Movie>().Remove(movie);
                     }
                 }
 
-                if (!contains)
-                {
                     this.ctx.Set<Staff>().Remove(entity);
                     this.ctx.SaveChanges();
-                }
             }
         }
     }
