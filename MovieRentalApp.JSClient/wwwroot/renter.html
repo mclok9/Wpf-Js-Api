@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Renter page</title>
+    <link rel="stylesheet" href="styleRenter.css" />
+</head>
+<body>
+    <h1>Renter List</h1>
+
+    <div id="formdiv">
+        <label>Renter name</label>
+        <input type="text" id="rentername" />
+        <label>Renter postcode</label>
+        <input type="number" id="renterpostcode" />
+        <label>Renter city</label>
+        <input type="text" id="rentercity" />
+        <label>Renter street</label>
+        <input type="text" id="renterstreet" />
+        <label>Renter house number</label>
+        <input type="text" id="renterhousenumber" />
+        <label>Renter start of the membership (YYYY-MM-DD)</label>
+        <input type="datetime" id="rentermembershipstart" />
+        <label>Renter end of the membership (YYYY-MM-DD)</label>
+        <input type="datetime" id="rentermembershipend" />
+        <label>Renter rentId (between 1 and 10)</label>
+        <input type="number" id="renterrentId" />
+        <button type="button" onclick="create()">Add renter</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Renter name</label>
+        <input type="text" id="renternameupdate" />
+        <label>Renter postcode</label>
+        <input type="number" id="renterpostcodeupdate" />
+        <label>Renter city</label>
+        <input type="text" id="rentercityupdate" />
+        <label>Renter street</label>
+        <input type="text" id="renterstreetupdate" />
+        <label>Renter house number</label>
+        <input type="text" id="renterhousenumberupdate" />
+        <label>Renter start of the membership (YYYY-MM-DD)</label>
+        <input type="datetime" id="rentermembershipstartupdate" />
+        <label>Renter end of the membership (YYYY-MM-DD)</label>
+        <input type="datetime" id="rentermembershipendupdate" />
+        <label>Renter rentId (between 1 and 10)</label>
+        <input type="number" id="renterrentIdupdate" />
+        <button type="button" onclick="update()">Update renter</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>RentId</th>
+                <th>Postcode</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>HouseNumber</th>
+                <th>MembershipStart</th>
+                <th>MembershipEnd</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="scriptRenter.js"></script>
+</body>
+</html>
