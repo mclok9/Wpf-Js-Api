@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Staff page</title>
+    <link rel="stylesheet" href="styleStaff.css" />
+</head>
+<body>
+    <h1>Staff List</h1>
+
+    <div id="formdiv">
+        <label>Staff director</label>
+        <input type="text" id="staffdirector" />
+        <label>Staff main character</label>
+        <input type="text" id="staffmaincharacter" />
+        <label>Staff number of supporting characters</label>
+        <input type="number" id="staffsupportingcharacters" />
+        <label>Staff cost</label>
+        <input type="number" id="staffcost" />
+        <label>Staff studio</label>
+        <input type="text" id="staffstudio" />
+        <label>Staff movieId (between 1 and 10)</label>
+        <input type="number" id="staffmovieId" />
+        <button type="button" onclick="create()">Add staff</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Staff director</label>
+        <input type="text" id="staffdirectorupdate" />
+        <label>Staff main character</label>
+        <input type="text" id="staffmaincharacterupdate" />
+        <label>Staff number of supporting characters</label>
+        <input type="number" id="staffsupportingcharactersupdate" />
+        <label>Staff cost</label>
+        <input type="number" id="staffcostupdate" />
+        <label>Staff studio</label>
+        <input type="text" id="staffstudioupdate" />
+        <label>Staff movieId (between 1 and 10)</label>
+        <input type="number" id="staffmovieIdupdate" />
+        <button type="button" onclick="update()">Update staff</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>MovieId</th>
+                <th>Studio</th>
+                <th>Director</th>
+                <th>MainCharacter</th>
+                <th>SupportingCharacters</th>
+                <th>Cost</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="scriptStaff.js"></script>
+</body>
+</html>
